@@ -1,0 +1,90 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color: #E8E8E8;
+}
+a{
+    color:#fff;
+    text-decoration: none;
+}
+.logo{
+    justify-content: center;
+    display: flex;
+    margin:0;
+    font-weight: 40%;
+    font-size:24px;
+    position: absolute;
+    width: 149px;
+    height: 33px;
+    left: 23px;
+    top: 13px;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Open Sans', sans-serif;
+    background: #4D41C0;
+    height:8vh;
+    align-items: center;;
+}
+.nav-list{
+    list-style: none;
+    display:flex;
+}
+.nav-list li{
+    margin-left: 20px;
+    align-items: center;
+}
+.ticket{
+    position: absolute;
+    left:77%;
+    align-items: center;
+    display:flex;
+    bottom:92%;
+    overflow: hidden;
+    padding: 18px 30px;
+    background: #45425A;
+}
+.new_ticket{
+    position:absolute;
+    left:85%;
+    align-items: center;
+    display:flex;
+    bottom:95%;
+    overflow: hidden;
+    padding: 28px 30px;
+    top:0.1px;
+}
+.ticket:hover{
+    transition: 1s;
+    color:white;
+    background: #45425A;
+}
+.new_ticket:hover{
+    transition: 1s;
+    color:white;
+    background: #45425A;
+}
+.title{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color:#4D41C0;
+    padding-left: 25px;
+    padding-top: 20px;
+}
+.box{
+    padding-left: 125px;
+    margin-left: 25px;
+    
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
