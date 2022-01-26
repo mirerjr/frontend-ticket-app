@@ -47,6 +47,7 @@ nav{
     overflow: hidden;
     padding: 18px 30px;
     background: #45425A;
+    font-size: 100%;
 }
 .new_ticket{
     position:absolute;
@@ -57,6 +58,7 @@ nav{
     overflow: hidden;
     padding: 28px 30px;
     top:0.1px;
+    font-size: 100%;
 }
 .ticket:hover{
     transition: 1s;
@@ -82,8 +84,16 @@ nav{
     padding-top: 20px;
 }
 .box{
-    padding-left: 125px;
-    margin-left: 25px;
+    padding-left: 1px;
+    margin-left: 15px;
+    position: absolute;
+    width: 342px;
+    height: 32px;
+    left: 12px;
+    top: 96px;
+    border-radius: 5px 5px 5px;
+    border-color: #9E9E9E;
+    outline-color: #9E9E9E;
     
 }
 
