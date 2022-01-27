@@ -19,7 +19,6 @@ h1{
     transition: 0.3s;
     padding: 17px 30px;
     margin-left: 55%;
-    background: #45425A;
 }
 .new_ticket{
     position: absolute;
@@ -29,8 +28,9 @@ h1{
     padding: 17px 30px;
     margin-left: 20px;
     margin-top: -17px;
-    margin-bottom: 90%;
+    margin-bottom: 91%;
     white-space: nowrap;
+    background: #45425A;
 
 }
 nav{
@@ -213,22 +213,6 @@ nav{
     border-radius: 5px 5px 5px;
     border-color: #9E9E9E;
     outline-color: #9E9E9E;
-}
-.btn{
-    background-image: url(img/bi_search.svg);
-    position: absolute;
-    border:none;
-    padding: 9px 20px 8px 30px;
-    margin-left: 375px;
-    background-repeat: no-repeat;
-    display:flex;
-    justify-content: center;
-    background-position-x: 10px;
-    background-position-y:10px;
-    background-color: #45425A;
-    color:white;
-    border-radius: 5px 4px 4px 5px;
-    cursor: pointer;
 }
 
 
