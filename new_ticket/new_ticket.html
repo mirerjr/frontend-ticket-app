@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
-    <title>Novo Bilhete</title>
+    <title>SolveTickets</title>
 </head>
 
 <body>
@@ -29,7 +29,21 @@
     </header>
     <section class="container">
         <main class="box-2">
-            <input type="text">
+            <p id="row">Nome:</p>
+            <input type="text" class="content">
+            <p id="row">Tópico:</p>
+            <input type="text" class="content">
+            <p id="row">Tipos de bilhete:</p>
+            <select name="Mes" class="content">
+                <option value="Jan">Janeiro</option>
+                <option value="Fev">Fevereiro</option>
+                <option value="Mar">Março</option>
+                <!-- ... -->
+             </select>
+             <p id="row">Descrição do Bilhete</p>
+             <textarea rows='10' cols='40' maxlength="500" class="description"></textarea>
+             <br>
+             <button class="enviar">Enviar</button>
         </main>
     </section>
     <script src="navbar.js"></script>

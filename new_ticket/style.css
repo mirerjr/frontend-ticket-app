@@ -228,6 +228,39 @@ nav{
   width: 500px;
   height: 600px;
   background: #fff;
+  border-radius: 5px 5px 5px 5px;
+  }
+  #row{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding:20px 5px 5px 5px;
+  }
+  .content{
+    margin-left: 10px;
+    width: 480px;
+    height: 32px;
+    left: 12px;
+    top: 96px;
+    border-radius: 5px 5px 5px;
+    border-color: #9E9E9E;
+    outline-color: #9E9E9E;
+  }
+  .description{
+    margin-left: 10px;
+    width: 480px;
+    height: 100px;
+    border-radius: 5px 5px 5px;
+    border-color: #9E9E9E;
+    outline-color: #9E9E9E;
+  }
+  .enviar{
+    width: 180px;
+    height: 40px;
+    left: 152px;
+    top: 492px;
+    margin-left: 165px;
+    margin-top: 50px;
   }
 
 
