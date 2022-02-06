@@ -3,6 +3,7 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 body{
     background-color: #E8E8E8;
@@ -189,6 +190,9 @@ nav{
     color:white;
     background: #45425A;
 } */
+form{
+  color:#4D41C0;
+}
 .title{
     font-family: 'Open Sans';
     font-style: normal;
