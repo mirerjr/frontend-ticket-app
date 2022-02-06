@@ -29,24 +29,27 @@
     </header>
     <section class="container">
         <main class="box-2">
-            <p id="row">Nome:</p>
-            <input type="text" class="content">
-            <p id="row">Tópico:</p>
-            <input type="text" class="content">
-            <p id="row">Tipos de bilhete:</p>
-            <select name="Mes" class="content">
-                <option value="Jan">Janeiro</option>
-                <option value="Fev">Fevereiro</option>
-                <option value="Mar">Março</option>
-                <!-- ... -->
-             </select>
-             <p id="row">Descrição do Bilhete</p>
-             <textarea rows='10' cols='40' maxlength="500" class="description"></textarea>
-             <br>
-             <button class="enviar">Enviar</button>
+            <form>
+                <p id="row">Nome:</p>
+                <input type="text" class="content" id="nome">
+                <p id="row">Tópico:</p>
+                <input type="text" class="content" id="topico">
+                <p id="row">Tipos de bilhete:</p>
+                <select name="Mes" class="content" id="tipo">
+                    <option value="Jan">Janeiro</option>
+                    <option value="Fev">Fevereiro</option>
+                    <option value="Mar">Março</option>
+                    <!-- ... -->
+                </select>
+                <p id="row">Descrição do Bilhete</p>
+                <textarea rows='10' cols='40' maxlength="500" class="description" id="description"></textarea>
+                <br>
+            </form>
+            <button class="enviar" id="btn">Enviar</button>
         </main>
     </section>
     <script src="navbar.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
