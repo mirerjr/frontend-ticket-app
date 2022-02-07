@@ -3,7 +3,6 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
 }
 body{
     background-color: #E8E8E8;
@@ -190,9 +189,6 @@ nav{
     color:white;
     background: #45425A;
 } */
-form{
-  color:#4D41C0;
-}
 .title{
     font-family: 'Open Sans';
     font-style: normal;
@@ -234,7 +230,7 @@ form{
   background: #fff;
   border-radius: 5px 5px 5px 5px;
   }
-  #row{
+  .row{
     display: flex;
     align-items: center;
     justify-content: left;
@@ -249,6 +245,7 @@ form{
     border-radius: 5px 5px 5px;
     border-color: #9E9E9E;
     outline-color: #9E9E9E;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .description{
     margin-left: 10px;
@@ -257,6 +254,7 @@ form{
     border-radius: 5px 5px 5px;
     border-color: #9E9E9E;
     outline-color: #9E9E9E;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .enviar{
     width: 180px;
@@ -266,7 +264,10 @@ form{
     margin-left: 165px;
     margin-top: 50px;
   }
-
+  .row{
+    font-family: 'Open Sans', sans-serif;
+    color:#4D41C0;
+  }
 
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
