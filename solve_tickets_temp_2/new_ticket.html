@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <title>SolveTickets</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>SolveTickets</h1>
+            <article class="mobile-menu">
+                <section class="line1"></section>
+                <section class="line2"></section>
+                <section class="line3"></section>
+            </article>
+            <ul class="nav-list">
+                <li><a href="../index.html" class="ticket">Bilhetes</a></li>
+                <li><a href="./new_ticket/new_ticket.html" class="new_ticket">Novo Bilhete</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="container">
+        <main class="box-2">
+            <form>
+                <p class="row">Nome:</p>
+                <input type="text" class="content" id="nome">
+                <p class="row">Tópico:</p>
+                <input type="text" class="content" id="topico">
+                <p class="row">Tipos de bilhete:</p>
+                <select name="Mes" class="content" id="tipo">
+                    <option value=" "></option>
+                    <option value="Jan">Janeiro</option>
+                    <option value="Fev">Fevereiro</option>
+                    <option value="Mar">Março</option>
+                    <!-- ... -->
+                </select>
+                <p class="row">Descrição do Bilhete</p>
+                <textarea rows='10' cols='40' maxlength="500" class="description" id="description"></textarea>
+                <br>
+            </form>
+            <button class="enviar" id="btn" onclick="cadastrar()">Enviar</button>
+        </main>
+    </section>
+    <script src="navbar.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

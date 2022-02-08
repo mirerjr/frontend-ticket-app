@@ -304,6 +304,7 @@ nav{
 }
 .elements-list-1{
   margin-left: 5px;
+  text-decoration: none;
 }
 .elements-list-2{
   margin-left: 5px;
@@ -319,6 +320,10 @@ nav{
 }
 .elements-list-6{
   margin-left: 5px;
+}
+a{
+  text-decoration: none;
+  color:black;
 }
 
 
