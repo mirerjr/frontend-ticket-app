@@ -1,12 +1,6 @@
 var p1 = window.document.getElementsByTagName('aside')[0]
 
 
-
-
-
-
-
-
 class MobileNavbar {
     constructor(mobileMenu, navList, navLinks) {
       this.mobileMenu = document.querySelector(mobileMenu);
