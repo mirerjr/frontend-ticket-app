@@ -1,4 +1,12 @@
-window.onload = generateTicketList();
+window.onload = () => {
+    generateTicketList();
+}
+
+const ticketOpen = document.getElementsByClassName('no-ticket-img')[0]
+const ticketContent = document.getElementsByClassName('ticket-content')[0]
+// ticketOpen.classList.add("hidden")
+// ticketContent.classList.remove("hidden")
+
 
 async function generateTicketList(){
     const tickets = await getTickets()
