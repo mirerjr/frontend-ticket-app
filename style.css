@@ -315,6 +315,12 @@ nav{
   margin-top: -400px;
 
 }
+.elements-list{
+  font-family: sans-serif;
+  color: #4d4d4d;
+  padding-left: 2%;
+  border-bottom: 1px solid #252525;
+}
 .elements-list-1{
   margin-left: 5px;
   text-decoration: none;
@@ -353,10 +359,10 @@ nav{
 .color-closed{
   color: rgb(197, 33, 33)
 }
-a{
+/* a{
   text-decoration: none;
   color:black;
-}
+} */
 
 
 @import url('https://css.gg/css?=|arrows-exchange|chevron-double-up-o|close-o|comment|math-plus');

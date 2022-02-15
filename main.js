@@ -43,12 +43,12 @@ async function generateTicketList(){
         let content = ` 
             <a>
                 <br>
-                <p> ${logs[0].description} <b>#${ticket.id}</b></p>
+                <p> ${formatLogText(logs[0])} <b>#${ticket.id}</b></p>
                 <br>
-                <p><b>${personName}</b> ${ticket.title}</p>
+                <p><b>${personName}</b>: ${ticket.title}</p>
                 <br>
-                <h6>Criado em: ${dateCreated}</h6>
-                <p>______________________________________________________</p>
+                <h6><i>Criado no dia ${dateCreated}</i></h6>
+                <br>
             </a>
         `
         let article = document.createElement('article')
@@ -171,8 +171,8 @@ function getLogIcon(logName){
 
 function getMonthName(month){
     const months = [
-        'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 
-        'jul', 'ago', 'set', 'out', 'nov', 'dez'
+        'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 
+        'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
     ];            
 
     return months[month];
@@ -182,11 +182,11 @@ function formatDate(oldDate){
     const date = new Date(oldDate);
     
     let newDate = '';            
-    newDate += `${getMonthName(date.getMonth())} `;
-    newDate += `${date.getDate()}, `;
-    newDate += `${date.getFullYear()} `;
+    newDate += `${date.getDate()} de `;
+    newDate += `${getMonthName(date.getMonth())} de `;
+    newDate += `${date.getFullYear()}, às `;
     newDate += `${date.getHours()}:`;
-    newDate += `${date.getMinutes()}`;
+    newDate += `${date.getMinutes()} hrs`;
 
     return newDate;
 }
@@ -198,9 +198,9 @@ function formatName(personName){
 
     const fullName = [firstName];
 
-    if(lastName != firstName){
-        fullName.push(lastName);
-    }
+    // if(lastName != firstName){
+    //     fullName.push(lastName);
+    // }
 
     return fullName.join(" ");
 }
