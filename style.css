@@ -294,7 +294,7 @@ nav{
 }
 .box-2{
   /* width:1030px; */
-  height:300px;
+  /* height:300px; */
   background-color: white;
   /* top, right, bottom, left */
   padding: 2% 3% 1.5% 3%;
@@ -319,7 +319,7 @@ nav{
   /* width:445px; */
   /* height:800px; */
   background-color: white;
-  border: 1.5px solid #d9d9d9
+  border: 1.5px solid #d9d9d9;
   /* margin-left:25px; */
   /* padding:0; */
   /* margin-bottom: 1000px; */
@@ -342,14 +342,11 @@ nav{
   cursor: pointer;
   font-family: sans-serif;
   color: #4d4d4d;
-  margin-left: 3.5%;
-  margin-right: 3.5%;
+  padding-left: 3.5%;
+  padding-right: 3.5%;
   border-bottom: 1px solid #9f9f9f;
 }
 .elements-list:hover{
-  padding-left:3.5%;
-  padding-right: 3.5%;
-  margin: 0;
   background-color: #f5f5f5;
 }
 .list-tickets .box-3 a{
@@ -409,6 +406,122 @@ nav{
   color:black;
 } */
 
+.timeline {
+    border-left: 3px solid #727cf5;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    letter-spacing: 0.2px;
+    position: relative;
+    line-height: 1.4em;
+    font-size: 1.03em;
+    padding: 50px;
+    list-style: none;
+    text-align: left;
+    max-width: 40%;
+}
 
-@import url('https://css.gg/css?=|arrows-exchange|chevron-double-up-o|close-o|comment|math-plus');
+@media (max-width: 767px) {
+    .timeline {
+        max-width: 98%;
+        padding: 25px;
+    }
+}
+
+.timeline h1 {
+    font-weight: 300;
+    font-size: 1.4em;
+}
+
+.timeline p i{
+  font-size: 0.86rem;
+}
+
+.timeline h2,
+.timeline h3 {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.timeline .event {
+    border-bottom: 1px dashed #e8ebf1;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+@media (max-width: 767px) {
+    .timeline .event {
+        padding-top: 30px;
+    }
+}
+
+.timeline .event:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: none;
+}
+
+.timeline .event:before,
+.timeline .event:after {
+    position: absolute;
+    display: block;
+    top: 0;
+}
+
+.timeline .event:before {
+    left: -207px;
+    content: attr(data-date);
+    text-align: right;
+    font-weight: 100;
+    font-size: 0.9em;
+    min-width: 120px;
+}
+
+@media (max-width: 767px) {
+    .timeline .event:before {
+        left: 0px;
+        text-align: left;
+    }
+}
+
+.timeline .event:after {
+    -webkit-box-shadow: 0 0 0 3px #727cf5;
+    box-shadow: 0 0 0 3px #727cf5;
+    left: -55.8px;
+    background: #fff;
+    border-radius: 50%;
+    height: 9px;
+    width: 9px;
+    content: "";
+    top: 5px;
+}
+
+@media (max-width: 767px) {
+    .timeline .event:after {
+        left: -31.8px;
+    }
+}
+
+.rtl .timeline {
+    border-left: 0;
+    text-align: right;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-right: 3px solid #727cf5;
+}
+
+.rtl .timeline .event::before {
+    left: 0;
+    right: -170px;
+}
+
+.rtl .timeline .event::after {
+    left: 0;
+    right: -55.8px;
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');

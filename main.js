@@ -15,6 +15,7 @@ async function openTicket(id){
     const fields = {
         "last-log": formatLogText(logs[0]),
         "ticket-id": "#"+ticket.id,
+        "type-name": ticketType.typeName,
         "ticket-title": ticket.title,
         "person-name": person.fullName,
         "person-phone": person.phone,
@@ -26,8 +27,11 @@ async function openTicket(id){
         const idField = document.getElementById(field);
         idField.innerHTML = fields[field];
     }
-    ticketOpen.classList.add("hidden")
-    ticketContent.classList.remove("hidden")
+
+    generateTimeline(logs);
+    
+    ticketOpen.classList.add("hidden");
+    ticketContent.classList.remove("hidden");
 }
 
 async function generateTicketList(){
@@ -58,6 +62,26 @@ async function generateTicketList(){
         article.setAttribute('onclick', `openTicket(${ticket.id})`)               
 
         ticketList.appendChild(article)
+    }
+}
+
+function generateTimeline(logs){
+    const timelineContent = document.getElementById("timeline-content"); 
+    timelineContent.innerHTML = `<ul class="timeline"></ul>`
+
+    const timeline = document.getElementsByClassName("timeline")[0];
+
+    for(let log of logs){
+        const logContent = formatLogText(log);
+        const logDate = formatDateTimeline(log.date);
+
+        let content = `<h3>${logContent}</h3><p><i>${logDate}</i><br><span class="text-break">${log.description}</span></p>`;
+
+        let ticketEvent = document.createElement('article');
+        ticketEvent.innerHTML = content;
+        ticketEvent.setAttribute('class', 'event');
+
+        timeline.appendChild(ticketEvent);
     }
 }
 
@@ -122,7 +146,6 @@ async function getTicketType(id){
 }
 
 function formatLogText(log){
-    console.log(log)
     let icon = '';
     let text = '';
         
@@ -187,6 +210,20 @@ function formatDate(oldDate){
     newDate += `${date.getFullYear()}, às `;
     newDate += `${date.getHours()}:`;
     newDate += `${date.getMinutes()} hrs`;
+
+    return newDate;
+}
+
+function formatDateTimeline(oldDate){
+    const date = new Date(oldDate);
+
+    let day = ('0' + date.getDate()).slice(-2);
+    let month = ('0' + (date.getMonth()+1)).slice(-2);
+    let year = date.getFullYear();
+    let hours = date.getHours();
+    let minutes = ('0' + date.getMinutes()).slice(-2);
+    
+    let newDate = `${day}/${month}/${year} ${hours}:${minutes}`;            
 
     return newDate;
 }
