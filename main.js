@@ -4,8 +4,7 @@ window.onload = () => {
 
 const ticketOpen = document.getElementsByClassName('no-ticket-img')[0]
 const ticketContent = document.getElementsByClassName('ticket-content')[0]
-ticketOpen.classList.add("hidden")
-ticketContent.classList.remove("hidden")
+
 
 async function openTicket(id){
     const ticket = await getTicketById(id);
@@ -26,6 +25,8 @@ async function openTicket(id){
         const idField = document.getElementById(field);
         idField.innerHTML = fields[field];
     }
+    ticketOpen.classList.add("hidden")
+    ticketContent.classList.remove("hidden")
 }
 
 async function generateTicketList(){
@@ -198,9 +199,9 @@ function formatName(personName){
 
     const fullName = [firstName];
 
-    // if(lastName != firstName){
-    //     fullName.push(lastName);
-    // }
+    if(lastName != firstName){
+        fullName.push(lastName);
+    }
 
     return fullName.join(" ");
 }
