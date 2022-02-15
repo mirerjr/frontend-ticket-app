@@ -79,20 +79,37 @@
             <h4 class="title-2">Selecionado</h4>
             <section class="col-md-12">
                 <aside class="box-2">
-                    <div class="no-ticket-img">
+                    <div class="no-ticket-img">                        
                         <img src="img/fluent_ticket-horizontal-20-regular.svg" alt="Nenhum ticket encontrado" srcset="">
                     </div>
                     <div class="ticket-content hidden">
-                        <div class="row-1">
-                            <div id="last-log">
-                            </div>
-                            <i>flagged</i>
+                        <div class="row"> 
+                            <div class="col-md-5 col-sm-12 d-flex align-items-center">                              
+                                <span class="me-2 fw-light" id="last-log"></span>
+                                <span class="fs-3 fw-bolder" id="ticket-id"></span>
+                            </div> 
                         </div>
-                        <div class="row-2">
-                            <button class="btn btn-outline-secondary">Trocar de Status</button>
-                            <button class="btn btn-outline-secondary">Comentar</button>
-                            <button class="btn btn-outline-secondary">Escalar</button>
-                            <button class="btn btn-outline-secondary">Encerrar</button>
+                        <div class="row buttons-list">
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-secondary">
+                                    <img class="btn-icons" src="img/changed.png">Trocar de Status
+                                </button>
+                            </div>
+                            <div class="col-md-3">                                
+                                <button class="btn btn-outline-secondary">
+                                    <img class="btn-icons" src="img/commented.png">Comentar
+                                </button>                                
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-secondary">
+                                    <img class="btn-icons" src="img/escalated.png">Escalar
+                                </button>                                
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-secondary">
+                                    <img class="btn-icons" src="img/closed.png">Encerrar
+                                </button>                                
+                            </div>
                         </div>
                         <div class="row-3">
                             <table class="ticket-header">
@@ -102,15 +119,15 @@
                                         <td id="ticket-title"></td>
                                     </tr>
                                     <tr>
-                                        <td>Pessoa</td>
+                                        <td>Pessoa:</td>
                                         <td id="person-name"></td>
                                     </tr>
                                     <tr>
-                                        <td>Telefone</td>
+                                        <td>Celular:</td>
                                         <td id="person-phone"></td>
                                     </tr>
                                     <tr>
-                                        <td>Email</td>
+                                        <td>Email:</td>
                                         <td id="person-email"></td>
                                     </tr>
                                 </tbody>

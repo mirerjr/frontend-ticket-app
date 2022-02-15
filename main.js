@@ -14,6 +14,7 @@ async function openTicket(id){
 
     const fields = {
         "last-log": formatLogText(logs[0]),
+        "ticket-id": "#"+ticket.id,
         "ticket-title": ticket.title,
         "person-name": person.fullName,
         "person-phone": person.phone,
@@ -45,10 +46,8 @@ async function generateTicketList(){
             <a>
                 <br>
                 <p> ${formatLogText(logs[0])} <b>#${ticket.id}</b></p>
-                <br>
-                <p><b>${personName}</b>: ${ticket.title}</p>
-                <br>
-                <h6><i>Criado no dia ${dateCreated}</i></h6>
+                <p><b>${personName}:</b> <span>${ticket.title}</span></p>
+                <h6><i class="lighter-text">Criado no dia ${dateCreated}</i></h6>
                 <br>
             </a>
         `
@@ -161,11 +160,11 @@ function formatLogText(log){
 function getLogIcon(logName){
     const icons = new Map();
     
-    icons.set('created', '<i class="gg-math-plus color-created"></i>')
-         .set('statusChanged', '<i class="gg-arrows-exchange color-changed"></i>')
-         .set('commented', '<i class="gg-comment color-commented"></i>')
-         .set('escalated', '<i class="gg-chevron-double-up-o color-escalated"></i>')
-         .set('closed', '<i class="gg-close-o color-closed"></i>');
+    icons.set('created', '<img src="img/created.svg" alt="criado">')
+         .set('statusChanged', '<img src="img/changed.svg" alt="criado">')
+         .set('commented', '<img src="img/commented.svg" alt="criado">')
+         .set('escalated', '<img src="img/escalated.svg" alt="criado">')
+         .set('closed', '<img src="img/closed.svg" alt="criado">');
     
     return icons.get(logName)         
 }

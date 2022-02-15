@@ -253,6 +253,7 @@ nav{
 }
 #inputProcurar{
   /* font-size: 0.85rem; */
+  font-family: sans-serif;
 }
 .box{
   /* padding-left: 1px; */
@@ -295,6 +296,8 @@ nav{
   /* width:1030px; */
   height:300px;
   background-color: white;
+  /* top, right, bottom, left */
+  padding: 2% 3% 1.5% 3%;
   /* margin-left:490px */
 }
 .no-ticket-img{
@@ -336,10 +339,24 @@ nav{
   margin-bottom: 0.5rem;
 }
 .elements-list{
+  cursor: pointer;
   font-family: sans-serif;
   color: #4d4d4d;
-  padding-left: 2%;
-  border-bottom: 1px solid #252525;
+  margin-left: 3.5%;
+  margin-right: 3.5%;
+  border-bottom: 1px solid #9f9f9f;
+}
+.elements-list:hover{
+  padding-left:3.5%;
+  padding-right: 3.5%;
+  margin: 0;
+  background-color: #f5f5f5;
+}
+.list-tickets .box-3 a{
+  background-color: blue !important;
+}
+.btn-icons{
+  width: 20px;
 }
 .elements-list-1{
   margin-left: 5px;
@@ -361,8 +378,16 @@ nav{
   margin-left: 5px;
 }
 #last-log{
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
+}
+#last-log img{
+  width: 2.35rem;
+  margin-right: 4px;
+}
+.buttons-list div button{
+  min-width: 50%;
+  width: 95%;
 }
 .color-created{
   color: rgb(56, 243, 31);
