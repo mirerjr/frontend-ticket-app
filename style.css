@@ -334,11 +334,30 @@ nav{
 .elements-list-6{
   margin-left: 5px;
 }
+#last-log{
+  display: flex;
+  align-items: center;
+}
+.color-created{
+  color: rgb(56, 243, 31);
+}
+.color-changed{
+  color: rgb(241, 184, 52);
+}
+.color-commented{
+  color: rgb(8, 12, 228);
+}
+.color-escalated{
+  color: rgb(238, 255, 83);
+}
+.color-closed{
+  color: rgb(197, 33, 33)
+}
 a{
   text-decoration: none;
   color:black;
 }
 
 
-
+@import url('https://css.gg/css?=|arrows-exchange|chevron-double-up-o|close-o|comment|math-plus');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');

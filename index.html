@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://css.gg/css?=|arrows-exchange|chevron-double-up-o|close-o|comment|math-plus" rel="stylesheet">
     <title>SolveTickets</title>
 </head>
 
@@ -55,11 +56,9 @@
                 </div>
                 <div class="ticket-content hidden">
                     <div class="row-1">
-                        <div>
-                            <i>Icone</i>
-                            Ultimo log
+                        <div id="last-log">
                         </div>
-                        <i>Icone</i>
+                        <i>flagged</i>
                     </div>
                     <div class="row-2">
                         <button>Trocar de Status</button>
@@ -72,28 +71,28 @@
                             <tbody>
                                 <tr>
                                     <td>Título:</td>
-                                    <td></td>
+                                    <td id="ticket-title"></td>
                                 </tr>
                                 <tr>
                                     <td>Pessoa</td>
-                                    <td></td>
+                                    <td id="person-name"></td>
                                 </tr>
                                 <tr>
                                     <td>Telefone</td>
-                                    <td></td>
+                                    <td id="person-phone"></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td></td>
+                                    <td id="person-email"></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="row-4">
-                        Descrição do ticket
+                        <p id="ticket-description"></p>
                     </div>
                     <div class="row-5">
-                        Logs do ticket
+                        Logs
                     </div>
                 </div>
             </aside>
