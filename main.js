@@ -92,6 +92,33 @@ async function generateTimeline(logs){
     }
 }
 
+async function escalateTicket(){
+    const ticket = openedTicket;
+    const description = document.getElementById("description-escalated").value;
+
+    const data = {
+        ticketId: ticket,
+        statusChanged: false,
+        ticketStatusId: null,
+        description: description,
+        commented: false, 
+        escalated: true,
+        created: false,
+        closed: false
+    }
+
+    const response = await insertLog(data);
+
+    if(response){
+        let modalEscalated = document.getElementById('modal-escalated');
+        let modal = bootstrap.Modal.getInstance(modalEscalated);
+        modal.hide();
+        
+        await generateTicketList();
+        await openTicket(ticket);
+    }
+}
+
 async function addCommentTicket(){
     const ticket = openedTicket;
     const comment = document.getElementById("comment-text").value;
