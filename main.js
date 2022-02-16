@@ -1,6 +1,7 @@
 window.onload = () => {
     generateTicketList();
 }
+var openedTicket
 
 const ticketOpen = document.getElementsByClassName('no-ticket-img')[0]
 const ticketContent = document.getElementsByClassName('ticket-content')[0]
@@ -11,9 +12,10 @@ async function openTicket(id){
     const logs = await getLogs(ticket.id);
     const person = await getPerson(ticket.personId);
     const ticketType = await getTicketType(ticket.ticketTypeId);
+    const lastLog = await formatLogText(logs[0])
 
     const fields = {
-        "last-log": formatLogText(logs[0]),
+        "last-log": lastLog,
         "ticket-id": "#"+ticket.id,
         "type-name": ticketType.typeName,
         "ticket-title": ticket.title,
@@ -28,8 +30,10 @@ async function openTicket(id){
         idField.innerHTML = fields[field];
     }
 
-    generateTimeline(logs);
+    await generateTimeline(logs);
+    await addStatusNameModal();
     
+    openedTicket = id
     ticketOpen.classList.add("hidden");
     ticketContent.classList.remove("hidden");
 }
@@ -45,11 +49,12 @@ async function generateTicketList(){
         const logs = await getLogs(ticket.id)
         const dateCreated = formatDate(ticket.dateCreated)
         const personName = formatName(person.fullName)
+        const lastLog = await formatLogText(logs[0])
 
         let content = ` 
             <a>
                 <br>
-                <p> ${formatLogText(logs[0])} <b>#${ticket.id}</b></p>
+                <p> ${lastLog} <b>#${ticket.id}</b></p>
                 <p><b>${personName}:</b> <span>${ticket.title}</span></p>
                 <h6><i class="lighter-text">Criado no dia ${dateCreated}</i></h6>
                 <br>
@@ -65,14 +70,14 @@ async function generateTicketList(){
     }
 }
 
-function generateTimeline(logs){
+async function generateTimeline(logs){
     const timelineContent = document.getElementById("timeline-content"); 
     timelineContent.innerHTML = `<ul class="timeline"></ul>`
 
     const timeline = document.getElementsByClassName("timeline")[0];
 
     for(let log of logs){
-        const logContent = formatLogText(log);
+        const logContent = await formatLogText(log);
         const logDate = formatDateTimeline(log.date);
 
         let content = `<h3>${logContent}</h3><p><i>${logDate}</i><br><span class="text-break">${log.description}</span></p>`;
@@ -82,6 +87,70 @@ function generateTimeline(logs){
         ticketEvent.setAttribute('class', 'event');
 
         timeline.appendChild(ticketEvent);
+    }
+}
+
+async function updateStatusTicket(){
+    const ticket = openedTicket;
+    const select = document.getElementById("status-name");
+    const status = select.options[select.selectedIndex].value;
+
+    const description = document.getElementById("description-text").value;
+
+    const data = {
+        ticketId: ticket,
+        statusChanged: true,
+        ticketStatusId: status,
+        description: description,
+        commented: false, 
+        escalated: false,
+        created: false,
+        closed: false
+    }
+
+    const response = await insertLog(data);
+
+    if(response){
+        let modalStatus = document.getElementById('modal-change-status');
+        let modal = bootstrap.Modal.getInstance(modalStatus);
+        modal.hide();
+        
+        await generateTicketList();
+        await openTicket(ticket);
+    }
+}
+
+async function insertLog(data){
+    const options = {
+        url: "http://127.0.0.1:8081/ticket-logs",
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {'Content-Type': 'application/json'}
+    };
+
+    const response = await fetch(options.url, {
+        method: options.method,
+        body: options.body,
+        headers: options.headers
+    });
+    
+    return response;
+}
+
+async function addStatusNameModal(){
+    const statusList = await getTicketStatus();
+    const select = document.getElementById("status-name");
+    
+    for(let status of statusList){
+        let statusOption = document.createElement('option');
+        statusOption.setAttribute('value', `${status.id}`);
+        statusOption.innerText = status.statusName;       
+        
+        if(status.id === statusList[0].id){
+            statusOption.setAttribute('selected',"");
+        }
+        
+        select.appendChild(statusOption);
     }
 }
 
@@ -133,6 +202,28 @@ async function getLogs(id){
     return logs;
 }
 
+async function getStatus(id){
+    const options = {
+        url: "http://127.0.0.1:8081/ticket-status/"+id,
+        method: "GET"
+    };
+
+    const response = await fetch(options.url);
+    return await response.json();
+}
+
+async function getTicketStatus(){
+    const options = {
+        url: "http://127.0.0.1:8081/ticket-status",
+        method: "GET"
+    };
+
+    const response = await fetch(options.url);
+    const status = await response.json();
+
+    return status;
+}
+
 async function getTicketType(id){
     const options = {
         url: "http://127.0.0.1:8081/ticket-types/"+id,
@@ -145,7 +236,7 @@ async function getTicketType(id){
     return type
 }
 
-function formatLogText(log){
+async function formatLogText(log){
     let icon = '';
     let text = '';
         
@@ -155,8 +246,7 @@ function formatLogText(log){
     }
 
     if(log.statusChanged){
-        const status = getStatus(log.statusId);
-
+        const status = await getStatus(log.ticketStatusId);
         icon = getLogIcon("statusChanged");
         text = `${icon} Status modificado para ${status.statusName}`;
     }

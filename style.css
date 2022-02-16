@@ -294,7 +294,8 @@ nav{
 }
 .box-2{
   /* width:1030px; */
-  /* height:300px; */
+  height:70vh;
+  overflow-y: scroll;
   background-color: white;
   /* top, right, bottom, left */
   padding: 2% 3% 1.5% 3%;
