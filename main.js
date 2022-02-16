@@ -92,6 +92,33 @@ async function generateTimeline(logs){
     }
 }
 
+async function closeTicket(){
+    const ticket = openedTicket;
+    const description = document.getElementById("description-closed").value;
+
+    const data = {
+        ticketId: ticket,
+        statusChanged: false,
+        ticketStatusId: null,
+        description: description,
+        commented: false, 
+        escalated: false,
+        created: false,
+        closed: true
+    }
+
+    const response = await insertLog(data);
+
+    if(response){
+        let modalClosed = document.getElementById('modal-closed');
+        let modal = bootstrap.Modal.getInstance(modalClosed);
+        modal.hide();
+        
+        await generateTicketList();
+        await openTicket(ticket);
+    }
+}
+
 async function escalateTicket(){
     const ticket = openedTicket;
     const description = document.getElementById("description-escalated").value;
