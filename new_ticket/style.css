@@ -226,7 +226,7 @@ nav{
   .box-2 {
   margin-top: 20px;
   width: 500px;
-  height: 600px;
+  /* height: 600px; */
   background: #fff;
   border-radius: 5px 5px 5px 5px;
   }
@@ -262,7 +262,7 @@ nav{
     left: 152px;
     top: 492px;
     margin-left: 165px;
-    margin-top: 50px;
+    margin-top: 10px;
   }
   .row{
     font-family: 'Open Sans', sans-serif;

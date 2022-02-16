@@ -30,23 +30,27 @@
     <section class="container">
         <main class="box-2">
             <form>
-                <p class="row">Nome:</p>
-                <input type="text" class="content" id="nome">
-                <p class="row">Tópico:</p>
-                <input type="text" class="content" id="topico">
-                <p class="row">Tipos de bilhete:</p>
-                <select name="Mes" class="content" id="tipo">
+                <p class="row">Título:</p>
+                <input type="text" class="content" id="topico-ticket">
+                <p class="row">Tipo de bilhete:</p>
+                <select name="tipos" class="content" id="tipo-ticket">
                     <option value=" "></option>
                     <option value="Jan">Janeiro</option>
                     <option value="Fev">Fevereiro</option>
                     <option value="Mar">Março</option>
                     <!-- ... -->
                 </select>
+                <p class="row">Nome do requerente:</p>
+                <input type="text" class="content" id="nome-pessoa">
+                <p class="row">Telefone:</p>
+                <input type="text" class="content" id="telefone-pessoa">
+                <p class="row">Email:</p>
+                <input type="text" class="content" id="email-pessoa">
                 <p class="row">Descrição do Bilhete</p>
                 <textarea rows='10' cols='40' maxlength="500" class="description" id="description"></textarea>
                 <br>
             </form>
-            <button class="enviar" id="btn">Enviar</button>
+            <button class="enviar" onclick="addTicket()" id="btn">Enviar</button>
         </main>
     </section>
     <script src="navbar.js"></script>
