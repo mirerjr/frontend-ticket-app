@@ -43,6 +43,8 @@ async function generateTicketList(){
 
     const ticketList = document.getElementsByClassName('list-tickets')[0]
                                 .getElementsByTagName("aside")[0]
+                                
+    ticketList.innerHTML = '';
 
     for(let ticket of tickets) {   
         const person = await getPerson(ticket.personId)
@@ -87,6 +89,33 @@ async function generateTimeline(logs){
         ticketEvent.setAttribute('class', 'event');
 
         timeline.appendChild(ticketEvent);
+    }
+}
+
+async function addCommentTicket(){
+    const ticket = openedTicket;
+    const comment = document.getElementById("comment-text").value;
+
+    const data = {
+        ticketId: ticket,
+        statusChanged: false,
+        ticketStatusId: null,
+        description: comment,
+        commented: true, 
+        escalated: false,
+        created: false,
+        closed: false
+    }
+
+    const response = await insertLog(data);
+
+    if(response){
+        let modalComment = document.getElementById('modal-comment');
+        let modal = bootstrap.Modal.getInstance(modalComment);
+        modal.hide();
+        
+        await generateTicketList();
+        await openTicket(ticket);
     }
 }
 
@@ -140,6 +169,8 @@ async function insertLog(data){
 async function addStatusNameModal(){
     const statusList = await getTicketStatus();
     const select = document.getElementById("status-name");
+
+    select.innerHTML = "";
     
     for(let status of statusList){
         let statusOption = document.createElement('option');

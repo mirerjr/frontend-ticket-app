@@ -165,7 +165,7 @@
                                 <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Trocar status</h5>
+                                    <h5 class="modal-title">Trocar status</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                     </div>
                                     <div class="modal-body">
@@ -184,6 +184,28 @@
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                     <button type="button" onclick="updateStatusTicket()" class="btn btn-primary">Salvar</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="modal-comment" tabindex="-1">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title">Adicionar comentário</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="mb-3">
+                                              <label for="comment-text" class="col-form-label">Mensagem:</label>
+                                              <textarea class="form-control" id="comment-text"></textarea>
+                                            </div>
+                                          </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    <button type="button" onclick="addCommentTicket()" class="btn btn-primary">Salvar</button>
                                     </div>
                                 </div>
                                 </div>
